@@ -18,10 +18,10 @@ app.use(cookieParser());
 app.use(express.json());
 
 //routes
-app.get('/', (req, res) => { res.send('Grocery Backend Server is running')});
+app.get('/', (req, res) => { res.send('Grocery Backend Server is running ')});
 
 
 
 app.listen(port, () => {
-  console.log(`Server is running on port http://localhost:5000 : ${port}`);
+  console.log(`Server is running on port http://localhost: ${port}`);
 });
