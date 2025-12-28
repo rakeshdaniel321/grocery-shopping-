@@ -24,12 +24,12 @@ app.get('/', (req, res) => { res.send('Grocery backend Server is running ')});
 
 
 //auth routes user registration  /api/auth/register
+// /api/auth/login
 
 app.use('/api/auth', authRoutes);
 
 
 
-
-app.listen(port, () => {
+app.listen(port, () => {  
   console.log(`Server is running on port http://localhost: ${port}`);
 });

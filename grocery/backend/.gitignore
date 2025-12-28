@@ -1,5 +1,6 @@
 // Ignore node modules
 node_modules/
 .env
-postman_cheack
-text.txt
+postman_check/test.txt
+
+

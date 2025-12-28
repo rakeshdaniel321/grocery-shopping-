@@ -34,8 +34,22 @@ const userSchema = new mongoose.Schema({
     default: false
   },
 
+
+  otpAttempts: {
+  type: Number,
+  default: 0
+},
+
+
+lastOtpSentAt: {
+  type: Date
+},
+
   otp: String,
   otpExpiry: Date
 },
+
 {timestamps:true}
 );
+
+export const User = mongoose.model('User', userSchema);
