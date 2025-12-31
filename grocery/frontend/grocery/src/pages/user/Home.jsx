@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 import { getProducts } from "../../api/productApi";
-
+import ProductCard from "../../components/ProductCard";
 
 const Home = ()=>{
 
@@ -19,8 +19,9 @@ const Home = ()=>{
     <div>
 
       <h2>Products</h2>
+
       {products.map(p=>(
-        <productCard  key={p._id} product={p}/>
+        <ProductCard  key={p._id} product={p}/>
       ))}
 
     </div>
