@@ -40,7 +40,7 @@ export const registerUser = async (req, res)=>
             //otp 
             const otp = generateOTP();
 
-            console.log("Generated OTP:", otp);
+           //console.log("Generated OTP:", otp);
 
             //save user to db
 
@@ -132,7 +132,7 @@ export const resendOTP = async (req, res) => {
           // Generate new OTP
           const newOtp = generateOTP();
 
-          console.log(" Re Generated OTP:", newOtp);
+          //console.log(" Re Generated OTP:", newOtp);
 
           //update User 
             user.otp = newOtp;
@@ -237,7 +237,7 @@ if (user.lastOtpSentAt) {
 
 
           const forgotOtp=generateOTP();
-            console.log("forgotOtp generation :",forgotOtp);
+            //console.log("forgotOtp generation :",forgotOtp);
 
           user.otp = forgotOtp;
           user.otpExpiry = Date.now() + 10 * 60 * 1000;
@@ -367,3 +367,5 @@ export const logout = (req, res) => {
     res.status(500).json({ message: "Logout failed" });
 }       
 };
+
+
