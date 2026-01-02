@@ -1,9 +1,16 @@
 import React from "react";
+import Home from "./Home";
 
-function App() {
-  return (
-    <h2>Rakesh</h2>
+
+function App()
+{
+  return(
+    <>
+    <Home/>
+    
+    </>
   );
 }
+
 
 export default App;
