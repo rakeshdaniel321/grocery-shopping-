@@ -1,6 +1,7 @@
 import React from "react";
 import { useState} from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 
 function Login (){
@@ -15,11 +16,25 @@ function Login (){
             setError(" All fields are required");
             return;
         }
+        setError("");
+        setLoading(false);
+
         try {
-            
-            
+            const res = await axios.post("http://localhost:7000/api/auth/login",
+            { email, password },
+            { withCredentials: true } );
+
+            const {role} =res.data;
+            if (role === "admin") {
+            navigate("/admin/dashboard");
+             }    
+             
+            else {
+            navigate("/customer/profile"); 
+            }
             
         } catch (error) {
+            setError(error.response?.data?.message || "Login failed")
             
         }
     }
@@ -40,3 +55,5 @@ function Login (){
         </div>
     );
 };
+
+export default Login;
