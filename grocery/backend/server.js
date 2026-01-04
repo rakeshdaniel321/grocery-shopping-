@@ -13,7 +13,7 @@ const port =process.env.PORT || 7000;
 await connectDb();
 
 //muliple origins
-const allowedOrigins = ['http://localhost:3000',];
+const allowedOrigins = ['http://localhost:5173',];
 //middleware
 app.use(cors({origin: allowedOrigins,credentials: true}));
 app.use(cookieParser());

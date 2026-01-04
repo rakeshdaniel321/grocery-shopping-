@@ -22,6 +22,15 @@ const userSchema = new mongoose.Schema({
     trim:true,
 
   },
+  mobile: {
+  type: String,
+  match: /^[6-9]\d{9}$/, // Tamil Nadu valid
+},
+
+address: {
+  type: String,
+  trim: true
+},
 
   role: {
     type: String,
