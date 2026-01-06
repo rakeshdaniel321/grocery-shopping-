@@ -1,0 +1,117 @@
+ /* Css variable*/
+:root {
+  --primary-color: #6c2bd9;
+  --secondary-color: #f4f1fb;
+  --text-color: #333;
+  --light-text: #777;
+  --white: #ffffff;
+  --danger: #e63946;
+  --border-radius: 12px;
+}
+
+.auth-left {
+  flex: 1;
+  padding: 40px;
+}
+
+.auth-left h2 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.auth-left p {
+  color: var(--light-text);
+  margin-bottom: 30px;
+}
+
+.auth-left h2 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.auth-left p {
+  color: var(--light-text);
+  margin-bottom: 30px;
+}
+
+
+.auth-input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-btn:disabled {
+  opacity: 0.6;
+}
+
+
+.auth-error {
+  color: var(--danger);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+
+
+@media (max-width: 768px) {
+  .auth-card {
+    flex-direction: column;
+  }
+
+  .auth-right {
+    display: none; /* Mobile-la image hide */
+  }
+}
+
+/*auth wallpaper*/
+.slide {
+  transition: all 0.6s ease;
+}
+
+.toggle-text {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.toggle-text span {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+/* password eye styles*/
+
+.password-box {
+  position: relative;
+}
+
+.password-box span {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+

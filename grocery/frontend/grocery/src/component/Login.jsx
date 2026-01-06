@@ -10,6 +10,8 @@ function Login (){
     const[password,setPassword]=useState("");
     const [error,setError]=useState('');
     const [loading,setLoading]=useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+
 
     const handleLogin = async ()=>{
         if(!email || !password){
@@ -45,11 +47,22 @@ function Login (){
             <input type="email" placeholder="Email" value={email}
             onChange={(e)=>setEmail(e.target.value)}/>
 
-              <input type="password" placeholder="Password" value={password}
+            <div className="password-box">
+
+              <input type={showPassword ? "text" :"password"}  className="auth-input" placeholder="Password" value={password}
             onChange={(e)=>setPassword(e.target.value)}/>
+
+            <span onClick={() => setShowPassword(!showPassword)}>
+          {showPassword ? "🙈" : "👁️"}
+          </span>
+           
+            </div>
 
              {error && <p style={{ color: "red" }}>{error}</p>}
 
+          <button onClick={handleLogin} disabled={loading}>
+           {loading ? "Logging in......" : "Login "}
+         </button>
 
 
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import  '../styles/auth.css';
 
 function Register() {
     const[name,setName]=useState("");
@@ -9,6 +10,7 @@ function Register() {
     const[password,setPassword]=useState("");
     const[error,setError]=useState("");
     const[loading,setLoading]=useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const navigate = useNavigate();
 
@@ -39,26 +41,45 @@ function Register() {
 
   return (
     <div>
-          <input type="text" placeholder="Name"
+      <div className="auth-container">
+        
+      <div className="auth-card">
+        <div className="auth-left">
+
+          <h2>Create Account</h2>
+
+          <p>Register to continue</p>
+
+
+          <input type="text"  className="auth-input" placeholder="Name"
           value={name} 
           onChange={(e)=>setName(e.target.value)}/>
 
-          <input type="email" placeholder="Email"
+          <input type="email" className="auth-input" placeholder="Email"
           value={email} 
           onChange={(e)=>setEmail(e.target.value)}/>
-
-          <input type="password" placeholder="Password"
+           <div className="password-box">
+          <input type={showPassword ? "text" : "password"} className="auth-input" placeholder="Password"
           value={password} 
           onChange={(e)=>setPassword(e.target.value)}/>
 
+          <span onClick={() => setShowPassword(!showPassword)}>
+          {showPassword ? "🙈" : "👁️"}
+          </span>
+
+          </div>
+
           
-         {error && <p style={{ color: "red" }}>{error}</p>}
-
-         <button onClick={handleRegister} disabled={loading}>
-          {loading ? "Registering..." : "Register Wait Otp Verification"}
-         </button>
+         {error &&  <div className="auth-error"> {error}</div>}
 
 
+
+
+         <button  className="auth-btn"  onClick={handleRegister} disabled={loading}>
+        {loading ? "Registering..." : "Register Wait Otp Verification"}
+        </button>
+
+    </div></div></div>
     </div>
   );
 }
