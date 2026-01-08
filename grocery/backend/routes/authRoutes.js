@@ -1,5 +1,5 @@
 import express from 'express';
-import { forgotPassword, login, registerUser, resendForgotOtp, resendOTP, resetPassword, verifyOTP } from '../controllers/authController.js';
+import { forgotPassword, getProfile, login, registerUser, resendForgotOtp, resendOTP, resetPassword, updateProfile, verifyOTP } from '../controllers/authController.js';
 import { otpLimiter } from '../utils/otpLimiter.js';
 import { protect,isAdmin } from '../middleware/authMiddleware.js';
 const router = express.Router();
@@ -18,5 +18,10 @@ router.post('/reset-password', resetPassword);
 
 router.get("/admin/dashboard",protect,isAdmin,(req,res)=>{res.status(200).json({message:"wlecome admin dashboaerd"})})
 router.get("/user/profile",protect,(req,res)=>{res.status(201).json({messsage:"user Profile",userId:req.user._id})})
+
+
+//user route
+router.get("/profile", protect, getProfile);
+router.put("/profile", protect, updateProfile);
 
 export default router;

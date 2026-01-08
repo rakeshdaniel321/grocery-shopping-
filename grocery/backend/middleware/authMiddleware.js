@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export const protect = (req, res, next) => {
+export const protect = async(req, res, next) => {
   try {
     const token = req.cookies.token;
 
@@ -9,7 +9,8 @@ export const protect = (req, res, next) => {
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET_TOKEN);
-    req.user = decoded; // { id, role }
+        req.user = await User.findById(decoded.id).select("-password");
+
 
     next();
   } catch (error) {
